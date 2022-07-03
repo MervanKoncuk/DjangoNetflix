@@ -1,0 +1,21 @@
+{% extends "index.html" %}
+
+{% block content %}
+<style>
+    .container {
+        margin-top: 150px;
+        margin-bottom: 150px;
+    }
+    .errorlist {
+        list-style: none;
+        color: red;
+    }
+</style>
+        <div class="container ">
+            <form action="" method="POST" class="w-50  m-auto border text-light p-2">
+                {% csrf_token %}
+                {{form}}
+                <input type="submit" value="Gönder" class="btn btn-primary">
+            </form>
+        </div>
+{% endblock content %}  
