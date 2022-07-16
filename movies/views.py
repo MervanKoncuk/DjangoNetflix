@@ -10,8 +10,13 @@ def index(request):
 def movies(request):
     profile = request.user
     filmler = Movie.objects.all()
-    filmlerim = MyMovie.objects.get(owner = profile.id)
-    izlenen = filmlerim.movie.all()
+    if MyMovie.objects.filter(owner = profile.id).exists():
+        filmlerim = MyMovie.objects.get(owner = profile.id)
+        izlenen = filmlerim.movie.all()
+    else:
+        filmlerim = ''
+        izlenen = ''
+    
 
 
     search_query = ''
